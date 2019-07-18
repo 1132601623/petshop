@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class CatServiceImpl implements CatService {
-
-    @Autowired
-    CatMapper catMapper;
-
+    @Autowired CatMapper catMapper;
     @Override
     public List<Cat> selectAllCats(String name) {
         return catMapper.selectAllCats(name);
