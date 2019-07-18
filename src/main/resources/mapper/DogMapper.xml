@@ -5,7 +5,7 @@
     <select id="selectAllDogs" parameterType="string" resultType="com.xcy.petshop.pojo.Dog">
         select * from dog
         <where>
-            <if test="name != null and name !=''">
+            <if test="_parameter != null and _parameter !=''">
                 name like CONCAT('%',#{name},'%')
             </if>
         </where>
