@@ -1,7 +1,7 @@
 package com.xcy.petshop.pojo;
 
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -23,5 +23,5 @@ public class Dog {
 
   private String source;
 
-  @ApiModelProperty private String name;
+  @Getter private String name;
 }
