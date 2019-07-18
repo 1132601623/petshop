@@ -6,7 +6,7 @@
         select * from dog
         <where>
             <if test="name != null and name !=''">
-                and name like CONCAT('%',#{name},'%')
+                name like CONCAT('%',#{name},'%')
             </if>
         </where>
     </select>
