@@ -44,6 +44,7 @@
             <version>1.1.1</version>
         </dependency>
 
+        <!--实体类有参无参、set get-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
