@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -18,7 +19,9 @@ public class DogController {
   @RequestMapping("/list")
   @ResponseBody
   @ApiOperation("拿到所有的狗狗,如果传递参数，那么就是模糊查询")
-  public List<Dog> showDogList(String name) {
+  public List<Dog> showDogList(String name, HttpServletResponse response) {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+
     List<Dog> dogList = dogService.selectAllDogs(name);
     return dogList;
   }

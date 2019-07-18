@@ -7,7 +7,7 @@
     </select>
 
     <insert id="registerEmail" parameterType="user">
-        insert into user (id , email, password) values (null, #{email}, #{password})
+        insert into user (email, password) values (#{email}, #{password})
     </insert>
 
     <select id="isLogin" parameterType="user" resultType="int">
