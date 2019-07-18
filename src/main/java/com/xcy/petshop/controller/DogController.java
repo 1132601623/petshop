@@ -17,9 +17,8 @@ public class DogController {
 
   @RequestMapping("/list")
   @ResponseBody
-  @ApiOperation("拿到所有的狗狗")
-  public List<Dog> showDogList(String name, int age) {
-    System.out.println(age);
+  @ApiOperation("拿到所有的狗狗,如果传递参数，那么就是模糊查询")
+  public List<Dog> showDogList(String name) {
     List<Dog> dogList = dogService.selectAllDogs(name);
     return dogList;
   }
