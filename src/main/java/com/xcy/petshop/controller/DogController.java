@@ -17,7 +17,7 @@ public class DogController {
 
   @RequestMapping("/list")
   @ApiOperation("拿到所有的狗狗")
-  public List<Dog> showDogList(@ApiParam("根据姓名，进行模糊查询") String name) {
+  public List<Dog> showDogList(@ApiParam("根据狗姓名，进行模糊查询") String name) {
     List<Dog> dogList = dogService.selectAllDogs(name);
     return dogList;
   }
