@@ -9,4 +9,6 @@ public interface UserMapper {
     int selectByEmail(String email);
 
     void registerEmail(User user);
+
+    int isLogin(User user);
 }

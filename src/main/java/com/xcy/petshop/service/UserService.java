@@ -6,4 +6,6 @@ public interface UserService {
     boolean selectByEmail(String email);
 
     void registerEmail(User user);
+
+    boolean isLogin(User user);
 }
