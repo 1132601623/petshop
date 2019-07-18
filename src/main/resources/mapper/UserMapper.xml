@@ -10,4 +10,8 @@
         insert into user (id , email, password) values (null, #{email}, #{password})
     </insert>
 
+    <select id="isLogin" parameterType="user" resultType="int">
+        select count(1) from user where email = #{email} and password = #{password}
+    </select>
+
 </mapper>

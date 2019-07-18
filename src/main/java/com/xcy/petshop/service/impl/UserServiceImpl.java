@@ -27,4 +27,10 @@ public class UserServiceImpl implements UserService {
     public void registerEmail(User user) {
         mapper.registerEmail(user);
     }
+
+    @Override
+    public boolean isLogin(User user) {
+        int count = mapper.isLogin(user);
+        return count > 0 ? true : false;
+    }
 }

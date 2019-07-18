@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class LoginController {
 
     @Autowired
@@ -30,4 +30,16 @@ public class LoginController {
         userService.registerEmail(user);
         return null;
     }
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public String login(User user){
+        boolean resoult = userService.isLogin(user);
+        if(resoult){
+            return "success";
+        }else{
+            return "fail";
+        }
+    }
+
 }
