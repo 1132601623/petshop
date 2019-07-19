@@ -3,46 +3,44 @@ package com.xcy.petshop.controller;
 import com.xcy.petshop.pojo.User;
 import com.xcy.petshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import javax.servlet.http.HttpServletResponse;
+
+@RestController
 @RequestMapping("/user")
 public class LoginController {
 
-    @Autowired
-    UserService userService;
+  @Autowired UserService userService;
 
-    @RequestMapping("/validateEmail")
-    @ResponseBody
-    public String validateEmail(String email){
-        boolean count = userService.selectByEmail(email);
-        System.out.println(email);
-        if(count){
-            return "success";
-        }else{
-            return "fail";
-        }
+  @RequestMapping("/validateEmail")
+  public String validateEmail(String email, HttpServletResponse response) {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+
+    boolean count = userService.selectByEmail(email);
+    if (count) {
+      return "1";
+    } else {
+      return "0";
     }
+  }
 
-    @RequestMapping("/registerEmail")
-    public String registerEmail(User user){
-        System.out.println(user);
-        userService.registerEmail(user);
+  @RequestMapping("/registerEmail")
+  public String registerEmail(User user, HttpServletResponse response) {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    userService.registerEmail(user);
+    return "1";
+  }
 
-        return null;
+  @RequestMapping("/login")
+  public String login(User user, HttpServletResponse response) {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    boolean result = userService.isLogin(user);
+    if (result) {
+      return "1";
+    } else {
+      return "0";
     }
-
-    @RequestMapping("/login")
-    @ResponseBody
-    public String login(User user){
-        boolean resoult = userService.isLogin(user);
-        if(resoult){
-            return "success";
-        }else{
-            return "fail";
-        }
-    }
-
+  }
 }

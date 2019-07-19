@@ -1,7 +1,6 @@
 package com.xcy.petshop.pojo;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -23,5 +22,5 @@ public class Dog {
 
   private String source;
 
-  @Getter private String name;
+  private String name;
 }
