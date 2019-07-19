@@ -6,7 +6,7 @@
         select count(1) from user where email = #{email}
     </select>
 
-    <insert id="registerEmail" parameterType="user">
+    <insert id="registerEmail" parameterType="User">
         insert into user (id , email, password) values (null, #{email}, #{password})
     </insert>
 

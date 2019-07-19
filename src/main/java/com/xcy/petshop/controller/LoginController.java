@@ -18,6 +18,7 @@ public class LoginController {
     @ResponseBody
     public String validateEmail(String email){
         boolean count = userService.selectByEmail(email);
+        System.out.println(email);
         if(count){
             return "success";
         }else{
@@ -27,7 +28,9 @@ public class LoginController {
 
     @RequestMapping("/registerEmail")
     public String registerEmail(User user){
+        System.out.println(user);
         userService.registerEmail(user);
+
         return null;
     }
 
