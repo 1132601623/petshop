@@ -22,9 +22,9 @@ public class LoginController {
 
     boolean count = userService.selectByEmail(email);
     if (count) {
-      return "1";
-    } else {
       return "0";
+    } else {
+      return "1";
     }
   }
 
@@ -34,7 +34,6 @@ public class LoginController {
     response.setHeader("Access-Control-Allow-Origin", "*");
     userService.registerEmail(user);
     return "1";
-
   }
 
   @RequestMapping("/login")

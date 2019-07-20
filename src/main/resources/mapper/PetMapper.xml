@@ -24,7 +24,7 @@
 
             <choose>
                 <when test="price == 0">
-                    price between 0 and 1000000000000
+                    and price between 0 and 1000000000000
                 </when>
                 <when test="price != 0 and 2000 >= price">
                     AND price between 0 and 2000
