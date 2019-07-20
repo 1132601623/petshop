@@ -11,4 +11,6 @@ public interface CustomerService {
   List<Customer> selectAllCatDesc();
 
   List<Customer> selectAllDesc();
+
+  Customer selectCustomerMessage();
 }

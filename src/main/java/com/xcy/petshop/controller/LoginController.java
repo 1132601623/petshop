@@ -34,6 +34,7 @@ public class LoginController {
     response.setHeader("Access-Control-Allow-Origin", "*");
     userService.registerEmail(user);
     return "1";
+
   }
 
   @RequestMapping("/login")
