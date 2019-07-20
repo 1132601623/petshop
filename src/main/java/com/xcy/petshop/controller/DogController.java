@@ -21,7 +21,6 @@ public class DogController {
   @ApiOperation("拿到所有的狗狗,如果传递参数，那么就是模糊查询")
   public List<Pet> showDogList(String name, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
-
     List<Pet> dogList = dogService.selectAllDogs(name);
     System.err.println(dogList);
     return dogList;

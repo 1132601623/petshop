@@ -11,4 +11,10 @@ public interface UserMapper {
     void registerEmail(User user);
 
     int isLogin(User user);
+
+    void updateUserValidateCodeByEmail(User user);
+
+    int validateEmailCode(User user);
+
+    void resetPassword(User user);
 }

@@ -3,11 +3,10 @@ package com.xcy.petshop.pojo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 public class User {
+
     private int id;
 
     private String email;
@@ -23,4 +22,6 @@ public class User {
     private String desc;
 
     private int coupon;
+
+
 }

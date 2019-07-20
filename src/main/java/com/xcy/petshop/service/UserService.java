@@ -8,4 +8,10 @@ public interface UserService {
     void registerEmail(User user);
 
     boolean isLogin(User user);
+
+    void updateUserValidateCodeByEmail(User user);
+
+    boolean validateEmailCode(User user);
+
+    void resetPassword(User user);
 }
