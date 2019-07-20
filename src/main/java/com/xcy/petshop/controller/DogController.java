@@ -1,6 +1,6 @@
 package com.xcy.petshop.controller;
 
-import com.xcy.petshop.pojo.Dog;
+import com.xcy.petshop.pojo.Pet;
 import com.xcy.petshop.service.DogService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +19,11 @@ public class DogController {
   @RequestMapping("/list")
   @ResponseBody
   @ApiOperation("拿到所有的狗狗,如果传递参数，那么就是模糊查询")
-  public List<Dog> showDogList(String name, HttpServletResponse response) {
+  public List<Pet> showDogList(String name, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
 
-    List<Dog> dogList = dogService.selectAllDogs(name);
+    List<Pet> dogList = dogService.selectAllDogs(name);
+    System.err.println(dogList);
     return dogList;
   }
 }

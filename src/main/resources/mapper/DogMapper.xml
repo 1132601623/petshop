@@ -2,12 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xcy.petshop.mapper.DogMapper">
 
-    <select id="selectAllDogs" parameterType="string" resultType="com.xcy.petshop.pojo.Dog">
-        select * from dog
+    <select id="selectAllDogs" parameterType="string" resultType="com.xcy.petshop.pojo.Pet">
+        select * from pet
         <where>
             <if test="_parameter != null and _parameter !=''">
                 name like CONCAT('%',#{name},'%')
             </if>
+            and p_id = 2
         </where>
+
     </select>
 </mapper>
