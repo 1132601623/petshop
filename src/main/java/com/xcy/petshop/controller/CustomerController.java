@@ -41,7 +41,6 @@ public class CustomerController {
   @ApiOperation("用来展示买家的信息")
   public Customer showCustomerMessage() {
     Customer customer = customerService.selectCustomerMessage();
-    System.out.println(customer);
     return customer;
   }
 }
