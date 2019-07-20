@@ -1,12 +1,12 @@
 package com.xcy.petshop.service;
 
-import com.xcy.petshop.pojo.Cat;
-import com.xcy.petshop.pojo.Dog;
+
+import com.xcy.petshop.pojo.Pet;
 
 import java.util.List;
 
 public interface SelectPetService {
-    List<Cat> selectAllCatById(int id) ;
+    List<Pet> selectAllCatById(int id) ;
 
-    List<Dog> selectAllDogById(int id) ;
+    List<Pet> selectAllDogById(int id) ;
 }

@@ -1,13 +1,13 @@
 package com.xcy.petshop.mapper;
 
-import com.xcy.petshop.pojo.Cat;
-import com.xcy.petshop.pojo.Dog;
+
+import com.xcy.petshop.pojo.Pet;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 @Mapper
 public interface SelectPetMapper {
-    List<Cat> selectAllCatById(int id);
+    List<Pet> selectAllCatById(int id);
 
-    List<Dog> selectAllDogById(int id);
+    List<Pet> selectAllDogById(int id);
 }
