@@ -13,4 +13,6 @@ public interface CustomerMapper {
   List<Customer> selectAllCatDesc();
 
   List<Customer> selectAllDesc();
+
+  Customer selectCustomerMessage();
 }

@@ -22,7 +22,6 @@ public class DogController {
   public List<Pet> showDogList(String name, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
     List<Pet> dogList = dogService.selectAllDogs(name);
-    System.err.println(dogList);
     return dogList;
   }
 }

@@ -21,10 +21,7 @@ public class CatController {
   public List<Pet> showCatList(
       @ApiParam("根据猫的姓名，进行模糊查询") String name, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
-
-    System.out.println(name);
     List<Pet> catList = catService.selectAllCats(name);
-    System.out.println(catList);
     return catList;
   }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xcy.petshop.mapper.PetMapper">
+    <resultMap id="petMap" type="com.xcy.petshop.pojo.Pet">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="price" property="price"/>
+        <result column="sex" property="sex"/>
+        <result column="image" property="image"/>
+        <result column="age" property="age"/>
+        <result column="desc" property="desc"/>
+        <result column="address" property="address"/>
+        <result column="name" property="name"/>
+        <result column="pName" property="pName"/>
+        <result column="kName" property="kName"/>
+    </resultMap>
+    <select id="selectAllNearPets" parameterType="com.xcy.petshop.pojo.Pet" resultMap="petMap">
+        select p.*, p2.pName, k.kName from pet p, pokeman p2, kind k
+        <where>
+            <if test="address != null and address != ''">
+                address like CONCAT('%',#{address},'%')
+            </if>
+
+            <choose>
+                <when test="price == 0">
+                    price between 0 and 1000000000000
+                </when>
+                <when test="price != 0 and 2000 >= price">
+                    AND price between 0 and 2000
+                </when>
+
+                <when test="price != 0 and (price > 2000 and 5000 >= price)">
+                    AND price between 2000 and 5000
+                </when>
+                <when test="price != 0 and (price > 5000 and 10000 >= price)">
+                    AND price between 5000 and 10000
+                </when>
+            </choose>
+            and p.p_id = p2.id and p.k_id = k.id
+        </where>
+
+    </select>
+</mapper>
