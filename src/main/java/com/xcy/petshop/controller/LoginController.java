@@ -55,7 +55,7 @@ public class LoginController {
   @ApiOperation("忘记密码，设置code")
    public String setCode(String email){
     String validateCode = MailUtils.getValidateCode(6);
-    MailUtils.sendMail(email,"您好:<br/>您本次的验证码是"+validateCode+",请于两小时内输入，否则失效。","Y先生学习网忘记密码验证码邮件");
+    MailUtils.sendMail(email,"您好:<br/>您本次的验证码是"+validateCode+",请于两小时内输入，否则失效。","宠物商店重置密码验证码");
 
     User user = new User();
     user.setEmail(email);
