@@ -26,4 +26,10 @@ public class CustomerServiceImpl implements CustomerService {
   public List<Customer> selectAllDesc() {
     return customerMapper.selectAllDesc();
   }
+
+  @Override
+  public Customer selectCustomerMessage() {
+    Customer customer = customerMapper.selectCustomerMessage();
+    return customer;
+  }
 }

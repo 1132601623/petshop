@@ -13,6 +13,9 @@
         <result property="kName" column="kName"/>
         <result property="pName" column="name"/>
     </resultMap>
+    <sql id="showAllCustomer">
+        select * from customer
+    </sql>
     <select id="selectAllDogDesc" resultType="com.xcy.petshop.pojo.Customer">
         select c.*, k.kName, p.name from customer c, kind k, pet p where c.p_id = 2 and c.k_id = k.id and p.id = c.p_id
     </select>
@@ -23,5 +26,9 @@
 
     <select id="selectAllDesc" resultType="com.xcy.petshop.pojo.Customer">
         select c.*, k.kName from customer c, kind k, pet p where c.k_id = k.id and p.id = c.p_id
+    </select>
+
+    <select id="selectCustomerMessage" resultType="com.xcy.petshop.pojo.Customer">
+        <include refid="showAllCustomer"></include>
     </select>
 </mapper>
