@@ -31,4 +31,24 @@ public class UserServiceImpl implements UserService {
     int count = userMapper.isLogin(user);
     return count > 0 ? true : false;
   }
+
+  @Override
+  public void updateUserValidateCodeByEmail(User user) {
+    userMapper.updateUserValidateCodeByEmail(user);
+  }
+
+  @Override
+  public boolean validateEmailCode(User user) {
+   int count = userMapper.validateEmailCode(user);
+   if(count > 0){
+     return true;
+   }else {
+     return false;
+   }
+  }
+
+  @Override
+  public void resetPassword(User user) {
+    userMapper.resetPassword(user);
+  }
 }

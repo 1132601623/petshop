@@ -11,7 +11,7 @@ import java.util.List;
 public interface FoodMapper {
 
 
-    List<Food> selectAllCatFood();
+    List<Food> selectAllCatFood(int id);
 
-    List<Food> selectAllDogFood();
+    List<Food> selectAllDogFood(int id);
 }
