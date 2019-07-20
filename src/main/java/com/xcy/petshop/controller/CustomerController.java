@@ -20,8 +20,6 @@ public class CustomerController {
   @ApiOperation("用来展示所有的评论")
   public List<Customer> showDesc() {
     List<Customer> allDesc = customerService.selectAllDesc();
-    System.out.println(allDesc);
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     return allDesc;
   }
 
@@ -29,8 +27,6 @@ public class CustomerController {
   @ApiOperation("用来展示狗狗的评论")
   public List<Customer> showDogDesc() {
     List<Customer> dogDesc = customerService.selectAllDogDesc();
-    System.out.println(dogDesc);
-    System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     return dogDesc;
   }
 
@@ -38,7 +34,6 @@ public class CustomerController {
   @ApiOperation("用来展示猫咪的评论")
   public List<Customer> showCatDesc() {
     List<Customer> catDesc = customerService.selectAllCatDesc();
-    System.out.println(catDesc);
     return catDesc;
   }
 }
