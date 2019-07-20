@@ -20,7 +20,6 @@ public class PetController {
   @ApiOperation("根据地区、价格、来源来展示宠物")
   public List<Pet> showNearPets(Pet pet) {
     List<Pet> petList = petService.selectAllNearPets(pet);
-    System.out.println(petList);
     return petList;
   }
 }
