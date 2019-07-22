@@ -31,11 +31,11 @@ public class LoginController {
   }
 
   @RequestMapping("/registerEmail")
-  @ApiOperation("用户注册")
-  public String registerEmail(User user, HttpServletResponse response) {
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    userService.registerEmail(user);
-    return "1";
+      @ApiOperation("用户注册")
+      public String registerEmail(User user, HttpServletResponse response) {
+          response.setHeader("Access-Control-Allow-Origin", "*");
+          userService.registerEmail(user);
+          return "1";
 
   }
 
