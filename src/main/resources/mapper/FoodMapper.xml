@@ -11,11 +11,23 @@
         <result column="p_id" property="pId" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="selectAllCatFood" resultMap="BaseResultMap">
-    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = 1
-  </select>
+    <select id="selectAllCatFood" resultMap="BaseResultMap" parameterType="string">
+        select f.* , p.* from food f, pokeman p
+        <where>
+            <if test="_parameter != null and _parameter != ''">
+                brand = #{brand} and
+            </if>
+            f.p_id = p.id and p.id = 1
+        </where>
+    </select>
 
-    <select id="selectAllDogFood" resultMap="BaseResultMap">
-    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = 2
-  </select>
+    <select id="selectAllDogFood" resultMap="BaseResultMap" parameterType="string">
+        select f.* , p.* from food f, pokeman p
+        <where>
+            <if test="_parameter != null and _parameter != ''">
+                brand = #{brand} and
+            </if>
+            f.p_id = p.id and p.id = 2
+        </where>
+    </select>
 </mapper>

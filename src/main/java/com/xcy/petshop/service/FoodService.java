@@ -5,7 +5,7 @@ import com.xcy.petshop.pojo.Food;
 import java.util.List;
 
 public interface FoodService {
-  List<Food> selectAllCatFood();
+  List<Food> selectAllCatFood(String brand);
 
-  List<Food> selectAllDogFood();
+  List<Food> selectAllDogFood(String brand);
 }

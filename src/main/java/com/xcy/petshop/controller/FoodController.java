@@ -18,15 +18,15 @@ public class FoodController {
 
   @RequestMapping("/catFood")
   @ApiOperation("用来展示猫猫的零食")
-  public List<Food> catFood() {
-    List<Food> catFoodList = foodService.selectAllCatFood();
+  public List<Food> catFood(String brand) {
+    List<Food> catFoodList = foodService.selectAllCatFood(brand);
     return catFoodList;
   }
 
   @RequestMapping("/dogFood")
   @ApiOperation("用来展示狗狗的零食")
-  public List<Food> dogFood() {
-    List<Food> dogFoodList = foodService.selectAllDogFood();
+  public List<Food> dogFood(String brand) {
+    List<Food> dogFoodList = foodService.selectAllDogFood(brand);
     return dogFoodList;
   }
 }
