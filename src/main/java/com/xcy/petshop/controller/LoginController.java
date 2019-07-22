@@ -5,14 +5,15 @@ import com.xcy.petshop.service.UserService;
 import com.xcy.petshop.utils.MailUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class LoginController {
 
   @Autowired UserService userService;
@@ -21,7 +22,9 @@ public class LoginController {
   @ApiOperation("注册用户的时候，先去数据库查询邮箱是否存在，如果存在，则无法进行注册")
   public String validateEmail(String email, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
-
+    System.out.println("--------------------------------");
+    System.err.println(email);
+    System.out.println("+++++++++++++++++++++++++++++++++");
     boolean count = userService.selectByEmail(email);
     if (count) {
       return "0";
@@ -34,9 +37,9 @@ public class LoginController {
   @ApiOperation("用户注册")
   public String registerEmail(User user, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
+    System.out.println(user.getEmail() + "------------------" + user.getPassword());
     userService.registerEmail(user);
     return "1";
-
   }
 
   @RequestMapping("/login")
@@ -53,9 +56,9 @@ public class LoginController {
 
   @RequestMapping("/setCode")
   @ApiOperation("忘记密码，设置code")
-   public String setCode(String email){
+  public String setCode(String email) {
     String validateCode = MailUtils.getValidateCode(6);
-    MailUtils.sendMail(email,"您好:<br/>您本次的验证码是"+validateCode+",请于两小时内输入，否则失效。","宠物商店重置密码验证码");
+    MailUtils.sendMail(email, "您好:<br/>您本次的验证码是" + validateCode + ",请于两小时内输入，否则失效。", "宠物商店重置密码验证码");
 
     User user = new User();
     user.setEmail(email);
@@ -67,7 +70,7 @@ public class LoginController {
 
   @RequestMapping("/changePassword")
   @ApiOperation("/通过判断传入的email和code来修改密码")
-  public String changePassword(String email, String code,String password){
+  public String changePassword(String email, String code, String password) {
 
     User user = new User();
     user.setEmail(email);
@@ -76,13 +79,11 @@ public class LoginController {
 
     boolean count = userService.validateEmailCode(user);
 
-    if(count){
+    if (count) {
       userService.resetPassword(user);
       return "1";
-    }else{
+    } else {
       return "0";
     }
   }
-
-
 }

@@ -3,19 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xcy.petshop.mapper.FoodMapper">
-  <resultMap id="BaseResultMap" type="com.xcy.petshop.pojo.Food" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="food_image" property="foodImage" jdbcType="VARCHAR" />
-    <result column="brand" property="brand" jdbcType="VARCHAR" />
-    <result column="p_id" property="pId" jdbcType="INTEGER" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.xcy.petshop.pojo.Food">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="food_image" property="foodImage" jdbcType="VARCHAR"/>
+        <result column="brand" property="brand" jdbcType="VARCHAR"/>
+        <result column="p_id" property="pId" jdbcType="INTEGER"/>
+    </resultMap>
 
-  <select id="selectAllCatFood" resultMap="BaseResultMap" parameterType="int">
-    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = #{id};
+    <select id="selectAllCatFood" resultMap="BaseResultMap">
+    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = 1
   </select>
 
-  <select id="selectAllDogFood" resultMap="BaseResultMap" parameterType="int">
-    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = #{id};
+    <select id="selectAllDogFood" resultMap="BaseResultMap">
+    select f.* , p.* from food f, pokeman p where f.p_id = p.id and p.id = 2
   </select>
 </mapper>

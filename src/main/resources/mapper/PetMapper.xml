@@ -24,7 +24,7 @@
 
             <choose>
                 <when test="price == 0">
-                    and price between 0 and 1000000000000
+                    AND price between 0 and 1000000000000
                 </when>
                 <when test="price != 0 and 2000 >= price">
                     AND price between 0 and 2000
@@ -36,9 +36,16 @@
                 <when test="price != 0 and (price > 5000 and 10000 >= price)">
                     AND price between 5000 and 10000
                 </when>
+                <when test="price != 0 and price > 10000">
+                    AND price > 10001
+                </when>
             </choose>
             and p.p_id = p2.id and p.k_id = k.id
         </where>
+
+        <if test="source != null and source != ''">
+            and source like CONCAT('%',#{source},'%')
+        </if>
 
     </select>
 </mapper>
