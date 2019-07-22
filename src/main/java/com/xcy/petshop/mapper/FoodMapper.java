@@ -11,4 +11,8 @@ public interface FoodMapper {
   List<Food> selectAllCatFood(String brand);
 
   List<Food> selectAllDogFood(String brand);
+
+    List<Food> selectAllDogFoodBrandList();
+
+  List<Food> selectAllCatFoodBrandList();
 }

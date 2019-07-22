@@ -29,4 +29,18 @@ public class FoodController {
     List<Food> dogFoodList = foodService.selectAllDogFood(brand);
     return dogFoodList;
   }
+
+  @RequestMapping("/dogFoodBrand")
+  @ApiOperation("用来展示狗狗零食的品牌")
+  public List<Food> dogFoodBrand() {
+    List<Food> dogFoodBrandList = foodService.selectAllDogFoodBrand();
+    return dogFoodBrandList;
+  }
+
+  @RequestMapping("/catFoodBrand")
+  @ApiOperation("用来展示猫猫零食的品牌")
+  public List<Food> catFoodBrand() {
+    List<Food> catFoodBrandList = foodService.selectAllCatFoodBrand();
+    return catFoodBrandList;
+  }
 }

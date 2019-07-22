@@ -8,4 +8,8 @@ public interface FoodService {
   List<Food> selectAllCatFood(String brand);
 
   List<Food> selectAllDogFood(String brand);
+
+    List<Food> selectAllDogFoodBrand();
+
+  List<Food> selectAllCatFoodBrand();
 }

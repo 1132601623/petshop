@@ -23,4 +23,16 @@ public class FoodServiceImpl implements FoodService {
     List<Food> dogFoodList = foodMapper.selectAllDogFood(brand);
     return dogFoodList;
   }
+
+  @Override
+  public List<Food> selectAllDogFoodBrand() {
+    List<Food> dogFoodBrandList = foodMapper.selectAllDogFoodBrandList();
+    return dogFoodBrandList;
+  }
+
+  @Override
+  public List<Food> selectAllCatFoodBrand() {
+    List<Food> catFoodBrandList = foodMapper.selectAllCatFoodBrandList();
+    return catFoodBrandList;
+  }
 }
