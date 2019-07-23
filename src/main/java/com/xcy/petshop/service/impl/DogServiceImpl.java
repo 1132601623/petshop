@@ -21,4 +21,10 @@ public class DogServiceImpl implements DogService {
   public Pet getDogById(int id) {
     return dogMapper.getDogById(id);
   }
+
+  @Override
+  public Pet getPetById(int id) {
+
+    return dogMapper.getPetById(id);
+  }
 }

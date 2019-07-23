@@ -34,4 +34,13 @@ public class DogController {
     Pet dog = dogService.getDogById(id);
     return dog;
   }
+
+  @RequestMapping("/getPetById")
+  @ResponseBody
+  @ApiOperation("根据特定Id,拿到特定宠物")
+  @CrossOrigin
+  public Pet getPetById(int id){
+    Pet pet = dogService.getPetById(id);
+    return pet;
+  }
 }

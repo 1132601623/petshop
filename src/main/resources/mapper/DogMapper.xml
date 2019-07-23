@@ -15,4 +15,8 @@
     <select id="getDogById" parameterType="int" resultType="com.xcy.petshop.pojo.Pet">
         select * from pet where p_id = 2 and id = #{id}
     </select>
+
+    <select id="getPetById" parameterType="int" resultType="com.xcy.petshop.pojo.Pet">
+        select * from pet where id = #{id}
+    </select>
 </mapper>

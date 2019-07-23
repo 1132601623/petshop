@@ -10,4 +10,6 @@ public interface DogMapper {
   List<Pet> selectAllDogs(String name);
 
   Pet getDogById(int id);
+
+    Pet getPetById(int id);
 }
