@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface DogMapper {
   List<Pet> selectAllDogs(String name);
+
+  Pet getDogById(int id);
 }
