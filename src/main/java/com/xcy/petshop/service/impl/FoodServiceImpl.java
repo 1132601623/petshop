@@ -13,14 +13,26 @@ public class FoodServiceImpl implements FoodService {
   @Autowired FoodMapper foodMapper;
 
   @Override
-  public List<Food> selectAllCatFood() {
-    List<Food> catFoodList = foodMapper.selectAllCatFood();
+  public List<Food> selectAllCatFood(String brand) {
+    List<Food> catFoodList = foodMapper.selectAllCatFood(brand);
     return catFoodList;
   }
 
   @Override
-  public List<Food> selectAllDogFood() {
-    List<Food> dogFoodList = foodMapper.selectAllDogFood();
+  public List<Food> selectAllDogFood(String brand) {
+    List<Food> dogFoodList = foodMapper.selectAllDogFood(brand);
     return dogFoodList;
+  }
+
+  @Override
+  public List<Food> selectAllDogFoodBrand() {
+    List<Food> dogFoodBrandList = foodMapper.selectAllDogFoodBrandList();
+    return dogFoodBrandList;
+  }
+
+  @Override
+  public List<Food> selectAllCatFoodBrand() {
+    List<Food> catFoodBrandList = foodMapper.selectAllCatFoodBrandList();
+    return catFoodBrandList;
   }
 }

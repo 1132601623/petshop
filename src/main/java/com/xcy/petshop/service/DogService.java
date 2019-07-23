@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DogService {
   List<Pet> selectAllDogs(String name);
+
+  Pet getDogById(int id);
 }

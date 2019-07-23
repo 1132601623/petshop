@@ -16,4 +16,6 @@ public class Food {
 
     private int pId;
 
+    private String nation;
+
 }

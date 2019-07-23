@@ -8,7 +8,11 @@ import java.util.List;
 @Mapper
 public interface FoodMapper {
 
-  List<Food> selectAllCatFood();
+  List<Food> selectAllCatFood(String brand);
 
-  List<Food> selectAllDogFood();
+  List<Food> selectAllDogFood(String brand);
+
+    List<Food> selectAllDogFoodBrandList();
+
+  List<Food> selectAllCatFoodBrandList();
 }

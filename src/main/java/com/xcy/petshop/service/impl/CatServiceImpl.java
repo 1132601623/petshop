@@ -16,4 +16,9 @@ public class CatServiceImpl implements CatService {
   public List<Pet> selectAllCats(String name) {
     return catMapper.selectAllCats(name);
   }
+
+  @Override
+  public Pet getCatById(int id) {
+    return catMapper.getCatById(id);
+  }
 }

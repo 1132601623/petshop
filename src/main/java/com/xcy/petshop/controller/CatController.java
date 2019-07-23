@@ -5,7 +5,9 @@ import com.xcy.petshop.service.CatService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
@@ -23,5 +25,14 @@ public class CatController {
     response.setHeader("Access-Control-Allow-Origin", "*");
     List<Pet> catList = catService.selectAllCats(name);
     return catList;
+  }
+
+  @RequestMapping("/getCatById")
+  @ResponseBody
+  @ApiOperation("根据一个id，拿到一个狗狗的详情")
+  @CrossOrigin
+  public Pet showCat(int id) {
+    Pet cat = catService.getCatById(id);
+    return cat;
   }
 }

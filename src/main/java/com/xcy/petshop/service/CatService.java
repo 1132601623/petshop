@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CatService {
   List<Pet> selectAllCats(String name);
+
+  Pet getCatById(int id);
 }

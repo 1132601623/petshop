@@ -10,6 +10,9 @@
             </if>
             and p_id = 2
         </where>
+    </select>
 
+    <select id="getDogById" parameterType="int" resultType="com.xcy.petshop.pojo.Pet">
+        select * from pet where p_id = 2 and id = #{id}
     </select>
 </mapper>

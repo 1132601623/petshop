@@ -1,6 +1,5 @@
 package com.xcy.petshop.controller;
 
-
 import com.xcy.petshop.pojo.Pet;
 import com.xcy.petshop.service.SelectPetService;
 import io.swagger.annotations.ApiOperation;
@@ -15,19 +14,12 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/pet")
 public class selectPetController {
-    @Autowired
-    SelectPetService selectPetService;
+  @Autowired SelectPetService selectPetService;
 
-    @RequestMapping("/getCatById")
-    @ApiOperation("传递一个id=1，获取所有猫咪")
-    public List<Pet> getCatById(int id){
-        List<Pet> cats = selectPetService.selectAllCatById(id);
-        return cats;
-    }
-    @RequestMapping("/getDogById")
-    @ApiOperation("传递一个id=2，获取所有狗狗")
-    public List<Pet> getDogById(int id){
-        List<Pet> dogs = selectPetService.selectAllDogById(id);
-        return dogs;
-    }
+  @RequestMapping("/getAllPetById")
+  @ApiOperation("传递一个id，获取猫咪和狗狗")
+  public List<Pet> selectAllPetById(int id) {
+    List<Pet> petList = selectPetService.selectAllPetById(id);
+    return petList;
+  }
 }

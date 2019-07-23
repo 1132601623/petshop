@@ -5,6 +5,7 @@ import com.xcy.petshop.service.DogService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,5 +24,14 @@ public class DogController {
     response.setHeader("Access-Control-Allow-Origin", "*");
     List<Pet> dogList = dogService.selectAllDogs(name);
     return dogList;
+  }
+
+  @RequestMapping("/getDogById")
+  @ResponseBody
+  @ApiOperation("根据一个id，拿到一个狗狗的详情")
+  @CrossOrigin
+  public Pet showDog(int id) {
+    Pet dog = dogService.getDogById(id);
+    return dog;
   }
 }

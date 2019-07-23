@@ -16,4 +16,9 @@ public class DogServiceImpl implements DogService {
   public List<Pet> selectAllDogs(String name) {
     return dogMapper.selectAllDogs(name);
   }
+
+  @Override
+  public Pet getDogById(int id) {
+    return dogMapper.getDogById(id);
+  }
 }
