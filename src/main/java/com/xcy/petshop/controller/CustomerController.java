@@ -39,8 +39,12 @@ public class CustomerController {
 
   @RequestMapping("/showCustomerMessage")
   @ApiOperation("用来展示买家的信息")
-  public Customer showCustomerMessage() {
-    Customer customer = customerService.selectCustomerMessage();
-    return customer;
+  public List<Customer> showCustomerMessage() {
+    List<Customer> customerList = customerService.selectCustomerMessage();
+    return customerList;
   }
+
+
+
+
 }

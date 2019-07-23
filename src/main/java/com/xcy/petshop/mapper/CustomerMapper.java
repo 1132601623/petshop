@@ -14,5 +14,5 @@ public interface CustomerMapper {
 
   List<Customer> selectAllDesc();
 
-  Customer selectCustomerMessage();
+  List<Customer> selectCustomerMessage();
 }

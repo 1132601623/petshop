@@ -28,8 +28,8 @@ public class CustomerServiceImpl implements CustomerService {
   }
 
   @Override
-  public Customer selectCustomerMessage() {
-    Customer customer = customerMapper.selectCustomerMessage();
-    return customer;
+  public List<Customer> selectCustomerMessage() {
+    List<Customer> customerList = customerMapper.selectCustomerMessage();
+    return customerList;
   }
 }
