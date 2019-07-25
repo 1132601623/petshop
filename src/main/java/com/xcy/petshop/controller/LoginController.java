@@ -60,17 +60,6 @@ public class LoginController {
   @ApiOperation("忘记密码，设置code")
   public String setCode(String email) throws MessagingException {
     String validateCode = GetValidateCode.getValidateCode(6);
-
-    /*SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-    simpleMailMessage.setTo(email);
-    String title = "宠物商店重置密码验证码";
-    String detail = "您本次的验证码是" + validateCode + "，请于两小时内输入，否则失效。";
-
-    simpleMailMessage.setSubject(title);
-    simpleMailMessage.setText(detail);
-    simpleMailMessage.setFrom(from);
-    javaMailSender.send(simpleMailMessage);*/
-
     String title = "宠物商店重置密码验证码";
     String detail =
         "您好：<br/>您本次的验证码是"
