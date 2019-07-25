@@ -13,14 +13,13 @@
     <select id="isLogin" parameterType="com.xcy.petshop.pojo.User" resultType="int">
         select count(1) from user where email = #{email} and password = #{password}
     </select>
+    <select id="validateCode" resultType="int" parameterType="com.xcy.petshop.pojo.User">
+        select count(1) from user  where email = #{email} and code = #{code}
+    </select>
 
     <update id="updateUserValidateCodeByEmail" parameterType="com.xcy.petshop.pojo.User">
         update user set code = #{code} where email = #{email}
     </update>
-
-    <select id="validateEmailCode" parameterType="com.xcy.petshop.pojo.User" resultType="int">
-        select count(1) from user where email = #{email} and code = #{code}
-    </select>
 
     <update id="resetPassword" parameterType="com.xcy.petshop.pojo.User">
         update user set password = #{password} where email = #{email}

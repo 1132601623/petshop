@@ -38,17 +38,14 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public boolean validateEmailCode(User user) {
-   int count = userMapper.validateEmailCode(user);
-   if(count > 0){
-     return true;
-   }else {
-     return false;
-   }
+  public void resetPassword(User user) {
+    userMapper.resetPassword(user);
   }
 
   @Override
-  public void resetPassword(User user) {
-    userMapper.resetPassword(user);
+  public boolean validateCode(User user) {
+    int count = userMapper.validateCode(user);
+
+    return count > 0 ? true : false;
   }
 }

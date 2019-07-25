@@ -3,15 +3,15 @@ package com.xcy.petshop.service;
 import com.xcy.petshop.pojo.User;
 
 public interface UserService {
-    boolean selectByEmail(String email);
+  boolean selectByEmail(String email);
 
-    void registerEmail(User user);
+  void registerEmail(User user);
 
-    boolean isLogin(User user);
+  boolean isLogin(User user);
 
-    void updateUserValidateCodeByEmail(User user);
+  void updateUserValidateCodeByEmail(User user);
 
-    boolean validateEmailCode(User user);
+  void resetPassword(User user);
 
-    void resetPassword(User user);
+  boolean validateCode(User user);
 }
