@@ -22,6 +22,7 @@ public class LoginController {
 
   @Autowired UserService userService;
   @Autowired JavaMailSender javaMailSender;
+  int i = 10;
 
   @Value("${spring.mail.username}")
   private String from;
